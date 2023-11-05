@@ -1,0 +1,15 @@
+# ?????
+server:
+  port: 9090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book_project?serverTimezone=GMT%2b8
+    username: root
+    password: 8020978wyh
+
+# ??spring?????????xml?spring??????
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+

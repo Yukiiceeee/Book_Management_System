@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.mapper.BookMapper">
+
+    <insert id="save">
+        <!--将数据传递回后端-->
+        insert into book(name, writer, amount, category, number, register)
+        values(#{name}, #{writer}, #{amount}, #{category}, #{number}, #{register})
+
+    </insert>
+
+    <!--通过Id更新对应元素的数据并上传-->
+    <update id="upDataById">
+        update book set register = #{register} where id = #{id}
+    </update>
+
+    <select id="list" resultType="com.example.springboot.entity.Book">
+        select * from book
+    </select>
+
+    <!-- 从数据库中查找 -->
+    <select id="listByCondition" resultType="com.example.springboot.entity.Book">
+        select * from book
+        <where>
+            <if test="name != null and name != ''">
+                name like concat('%', #{ name }, '%')
+            </if>
+            <if test="number != null and number != ''">
+                and number like concat('%', #{ number }, '%')
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <!--通过Id在数据库中查找对应元素-->
+    <select id="getById" resultType="com.example.springboot.entity.Book">
+        select * from book where id = #{id}
+    </select>
+
+</mapper>

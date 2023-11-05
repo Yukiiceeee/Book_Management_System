@@ -1,0 +1,9 @@
+com\example\springboot\common\Result.class
+com\example\springboot\SpringbootApplication.class
+com\example\springboot\service\IBookService.class
+com\example\springboot\mapper\BookMapper.class
+com\example\springboot\service\impl\BookService.class
+com\example\springboot\controller\request\BookPageRequest.class
+com\example\springboot\entity\Book.class
+com\example\springboot\controller\request\BaseRequest.class
+com\example\springboot\controller\BookController.class
